@@ -1,0 +1,22 @@
+{
+	"name": "LakeDb1",
+	"properties": {
+		"Name": "LakeDb1",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://synapsefilesystem1@shgillasynapse1datalake.dfs.core.windows.net/LakeDb1",
+			"Properties": {
+				"FormatType": "parquet",
+				"LinkedServiceName": "shgillasynapse1-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
