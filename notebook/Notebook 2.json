@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "69a08e2a-2c9d-47ef-865c-cf050a163aa6"
+				"spark.autotune.trackingId": "a7057629-8f4a-43b2-a0fd-8368bf47e6be"
 			}
 		},
 		"metadata": {
@@ -104,9 +104,32 @@
 				},
 				"source": [
 					"%%pyspark \r\n",
-					"display(spark.sql('SHOW CREATE TABLE `LakeDb1`.`customTable1`'))"
+					"display(spark.sql('SHOW CREATE TABLE `LakeDb1`.`cyclecount1`'))"
 				],
-				"execution_count": 11
+				"execution_count": 23
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"microsoft": {
+						"language": "sparksql"
+					},
+					"collapsed": false
+				},
+				"source": [
+					"%%sql\r\n",
+					"CREATE TABLE lakedb1.cyclecount2 ( CycleCountId INT NOT NULL, CycleCountDate DATE, CycleCountTypeId INT) USING delta TBLPROPERTIES ( 'DerivedModelEntityInfo' = '{\"entityDirectives\":{\"name\":\"CycleCount\",\"description\":\"Cycle counting is a process by which portions of the inventory are selected for counting on a regular basis. Cycle counters are sent into the warehouse to physically view and count the material actually on hand.\\n\\nThe results of these cycle counts are used to make corrections to recorded inventory levels.\\n\\nAn inventory accuracy audit technique where inventory is counted on a cyclic schedule rather than once a year.\\n\\nMost effective cycle counting programs require the counting of a certain number of items every workday with each item counted at a prescribed frequency.\\n\\nThe key purpose of cycle counting is to identify items in error, trigger research, identify and eliminate errors.\\n\\nCycle counting is designed to achieve four goals:\\n\\n(1) Catch and correct errors in inventory\\n(2) Double-check corrects in inventory found by others\\n(3) Validate the proper use of procedures for handing Items\\n(4) Measure the accuracy of the inventory records\\n\\nThe frequency of cycle counting can be varied to focus management attention on the more valuable or important items or to match work processes. Some of the systems used are:\\n\\n- ABC system with the highest count frequency for items with the highest annual usage value\\n\\n- Reorder system when stocks are counted at the time of order\\n\\n- Receiver system with counting when goods are received\\n\\n- Zero balance system to count items when a backorder situation is reached to confirm that no stock is held\\n\\n- Transaction system where stocks are counted after a specified number of transactions\",\"baseEntityReference\":{\"name\":\"CycleCount\",\"path\":\"CycleCount.cdm.json/CycleCount\"},\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCount.cdm.json/CycleCount\",\"name\":\"CycleCountId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of the Cycle Count.\",\"isNullable\":false,\"name\":\"CycleCountId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCount.cdm.json/CycleCount\",\"name\":\"CycleCountDate\"},\"dataType\":\"date\",\"dateFormat\":\"YYYY-MM-DD\",\"description\":\"The date that the Cycle Count took place.\",\"isNullable\":true,\"name\":\"CycleCountDate\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCount.cdm.json/CycleCount\",\"name\":\"CycleCountTypeId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Cycle Count.\",\"isNullable\":true,\"name\":\"CycleCountTypeId\"}]},\"primaryKey\":[\"CycleCountId\"]}}', 'Description' = 'Cycle counting is a process by which portions of the inventory are selected for counting on a regular basis. Cycle counters are sent into the warehouse to physically view and count the material actually on hand. The results of these cycle counts are used to make corrections to recorded inventory levels. An inventory accuracy audit technique where inventory is counted on a cyclic schedule rather than once a year. Most effective cycle counting programs require the counting of a certain number of items every workday with each item counted at a prescribed frequency. The key purpose of cycle counting is to identify items in error, trigger research, identify and eliminate errors. Cycle counting is designed to achieve four goals: (1) Catch and correct errors in inventory (2) Double-check corrects in inventory found by others (3) Validate the proper use of procedures for handing Items (4) Measure the accuracy of the inventory records The frequency of cycle counting can be varied to focus management attention on the more valuable or important items or to match work processes. Some of the systems used are: - ABC system with the highest count frequency for items with the highest annual usage value - Reorder system when stocks are counted at the time of order - Receiver system with counting when goods are received - Zero balance system to count items when a backorder situation is reached to confirm that no stock is held - Transaction system where stocks are counted after a specified number of transactions', 'DisplayFolderInfo' = '{\"name\":\"Inventory\",\"colorCode\":\"#EA279F\"}', 'PrimaryKeys' = 'CycleCountId')"
+				],
+				"execution_count": 17
 			}
 		]
 	}
