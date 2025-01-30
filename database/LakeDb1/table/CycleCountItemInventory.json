@@ -1,0 +1,199 @@
+{
+	"name": "CycleCountItemInventory",
+	"properties": {
+		"Name": "CycleCountItemInventory",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "LakeDb1"
+		},
+		"Description": "The Item count at a Warehouse determined by the associated Cycle Count.",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "WarehouseLocationId",
+					"Description": "The unique identifier of a location.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountItemInventory.cdm.json/CycleCountItemInventory",
+						"Name": "WarehouseLocationId"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "ItemSku",
+					"Description": "The Stock Keeping Unit identifier, which is typically used for inventory-related activities.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountItemInventory.cdm.json/CycleCountItemInventory",
+						"Name": "ItemSku"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Length": 40,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "CycleCountId",
+					"Description": "The unique identifier of the Cycle Count.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountItemInventory.cdm.json/CycleCountItemInventory",
+						"Name": "CycleCountId"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "WarehouseId",
+					"Description": "The unique identifier of a Warehouse.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountItemInventory.cdm.json/CycleCountItemInventory",
+						"Name": "WarehouseId"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "CycleCountExpectedQuantity",
+					"Description": "The quantity of Items expected to be found during the Cycle Count.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountItemInventory.cdm.json/CycleCountItemInventory",
+						"Name": "CycleCountExpectedQuantity"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "CycleCountActualQuantity",
+					"Description": "The quantity of Items actually found during the Cycle Count.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountItemInventory.cdm.json/CycleCountItemInventory",
+						"Name": "CycleCountActualQuantity"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "CycleCountDiscrepancyQuantity",
+					"Description": "The difference between the actual stock held and the calculated stock or registered stock.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountItemInventory.cdm.json/CycleCountItemInventory",
+						"Name": "CycleCountDiscrepancyQuantity"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "decimal",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Precision": 18,
+						"Scale": 2,
+						"Properties": {
+							"HIVE_TYPE_STRING": "decimal"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "BlindCountIndicator",
+					"Description": "Describes method used in cycle counting and physical inventories where you provide your counters with item number and location but no quantity information.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountItemInventory.cdm.json/CycleCountItemInventory",
+						"Name": "BlindCountIndicator"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "boolean",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Properties": {
+							"HIVE_TYPE_STRING": "boolean"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://synapsefilesystem1@shgillasynapse1datalake.dfs.core.windows.net/LakeDb1/CycleCountItemInventory",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://synapsefilesystem1@shgillasynapse1datalake.dfs.core.windows.net/LakeDb1/CycleCountItemInventory",
+				"Properties": {
+					"LinkedServiceName": "shgillasynapse1-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"WarehouseLocationId\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"WarehouseLocationId\"},\"ItemSku\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"ItemSku\"},\"CycleCountId\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"CycleCountId\"},\"WarehouseId\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"WarehouseId\"},\"CycleCountExpectedQuantity\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"CycleCountExpectedQuantity\"},\"CycleCountActualQuantity\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"CycleCountActualQuantity\"},\"CycleCountDiscrepancyQuantity\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"CycleCountDiscrepancyQuantity\"},\"BlindCountIndicator\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"BlindCountIndicator\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"CycleCountItemInventory\",\"path\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\"},\"description\":\"The Item count at a Warehouse determined by the associated Cycle Count.\",\"primaryKey\":[\"WarehouseLocationId\",\"ItemSku\",\"CycleCountId\",\"WarehouseId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"WarehouseLocationId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a location.\",\"isNullable\":false,\"name\":\"WarehouseLocationId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"ItemSku\"},\"dataType\":\"string\",\"dataTypeLength\":40,\"description\":\"The Stock Keeping Unit identifier, which is typically used for inventory-related activities.\",\"isNullable\":false,\"name\":\"ItemSku\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"CycleCountId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of the Cycle Count.\",\"isNullable\":false,\"name\":\"CycleCountId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"WarehouseId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Warehouse.\",\"isNullable\":false,\"name\":\"WarehouseId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"CycleCountExpectedQuantity\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The quantity of Items expected to be found during the Cycle Count.\",\"isNullable\":true,\"scale\":2,\"name\":\"CycleCountExpectedQuantity\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"CycleCountActualQuantity\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The quantity of Items actually found during the Cycle Count.\",\"isNullable\":true,\"scale\":2,\"name\":\"CycleCountActualQuantity\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"CycleCountDiscrepancyQuantity\"},\"dataType\":\"decimal\",\"dataTypeLength\":18,\"description\":\"The difference between the actual stock held and the calculated stock or registered stock.\",\"isNullable\":true,\"scale\":2,\"name\":\"CycleCountDiscrepancyQuantity\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"name\":\"BlindCountIndicator\"},\"dataType\":\"boolean\",\"description\":\"Describes method used in cycle counting and physical inventories where you provide your counters with item number and location but no quantity information.\",\"isNullable\":true,\"name\":\"BlindCountIndicator\"}]}}}",
+			"Description": "The Item count at a Warehouse determined by the associated Cycle Count.",
+			"DisplayFolderInfo": "{\"name\":\"Inventory\",\"colorCode\":\"#EA279F\"}",
+			"PrimaryKeys": "WarehouseLocationId,ItemSku,CycleCountId,WarehouseId",
+			"spark.sql.sources.provider": "parquet",
+			"sql:IsAppendOnly": false
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}

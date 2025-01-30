@@ -1,0 +1,26 @@
+{
+	"name": "relationship-kkafskphze",
+	"properties": {
+		"Name": "relationship-kkafskphze",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "LakeDb1"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "CycleCountType",
+		"ToTableName": "CycleCount",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "CycleCountTypeId",
+				"ToColumnName": "CycleCountTypeId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"CycleCountType.cdm.json/CycleCountType\",\"toEntity\":\"CycleCount.cdm.json/CycleCount\",\"joinPairs\":[{\"fromAttribute\":\"CycleCountTypeId\",\"toAttribute\":\"CycleCountTypeId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

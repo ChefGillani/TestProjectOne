@@ -1,0 +1,26 @@
+{
+	"name": "relationship-fydwhdjgal",
+	"properties": {
+		"Name": "relationship-fydwhdjgal",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "LakeDb1"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "CycleCount",
+		"ToTableName": "CycleCountItemInventory",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "CycleCountId",
+				"ToColumnName": "CycleCountId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"CycleCount.cdm.json/CycleCount\",\"toEntity\":\"CycleCountItemInventory.cdm.json/CycleCountItemInventory\",\"joinPairs\":[{\"fromAttribute\":\"CycleCountId\",\"toAttribute\":\"CycleCountId\"}]}}"
+		}
+	},
+	"type": "RELATIONSHIP"
+}

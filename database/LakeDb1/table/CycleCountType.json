@@ -1,0 +1,109 @@
+{
+	"name": "CycleCountType",
+	"properties": {
+		"Name": "CycleCountType",
+		"EntityType": "TABLE",
+		"Namespace": {
+			"DatabaseName": "LakeDb1"
+		},
+		"Description": "The type of cycle count.\n\nEx:\n\nABC CYCLE COUNT\nABC system with the highest count frequency for items with the highest annual usage value\n\nORDER COUNT\nReorder system when stocks are counted at the time of order\n\nUPON RECEIPT COUNT\nReceiver system with counting when goods are received\n\nZERO BALANCE COUNT\nZero balance system to count items when a backorder situation is reached to confirm that no stock is held\n\nTRANSACTION COUNT\nTransaction system where stocks are counted after a specified number of transactions",
+		"TableType": "EXTERNAL",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"StorageDescriptor": {
+			"Columns": [
+				{
+					"Name": "CycleCountTypeId",
+					"Description": "The unique identifier of a Cycle Count Type.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountType.cdm.json/CycleCountType",
+						"Name": "CycleCountTypeId"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "integer",
+						"IsComplexType": false,
+						"IsNullable": false,
+						"Properties": {
+							"HIVE_TYPE_STRING": "integer"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "CycleCountTypeName",
+					"Description": "The name of a Cycle Count Type.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountType.cdm.json/CycleCountType",
+						"Name": "CycleCountTypeName"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 256,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				},
+				{
+					"Name": "CycleCountTypeDescription",
+					"Description": "The description of a Cycle Count Type.",
+					"BaseAttributeReference": {
+						"Entity": "CycleCountType.cdm.json/CycleCountType",
+						"Name": "CycleCountTypeDescription"
+					},
+					"OriginDataTypeName": {
+						"TypeName": "string",
+						"IsComplexType": false,
+						"IsNullable": true,
+						"Length": 2048,
+						"Properties": {
+							"HIVE_TYPE_STRING": "string"
+						}
+					},
+					"DeltaFormatInvalidMessages": []
+				}
+			],
+			"Format": {
+				"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+				"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+				"FormatType": "parquet",
+				"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+				"Properties": {
+					"path": "abfss://synapsefilesystem1@shgillasynapse1datalake.dfs.core.windows.net/LakeDb1/CycleCountType",
+					"FormatTypeSetToDatabaseDefault": true
+				}
+			},
+			"Source": {
+				"Provider": "ADLS",
+				"Location": "abfss://synapsefilesystem1@shgillasynapse1datalake.dfs.core.windows.net/LakeDb1/CycleCountType",
+				"Properties": {
+					"LinkedServiceName": "shgillasynapse1-WorkspaceDefaultStorage",
+					"LocationSetToDatabaseDefault": true
+				}
+			},
+			"Properties": {
+				"textinputformat.record.delimiter": ",",
+				"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+				"derivedModelAttributeInfo": "{\"attributeReferences\":{\"CycleCountTypeId\":{\"entity\":\"CycleCountType.cdm.json/CycleCountType\",\"name\":\"CycleCountTypeId\"},\"CycleCountTypeName\":{\"entity\":\"CycleCountType.cdm.json/CycleCountType\",\"name\":\"CycleCountTypeName\"},\"CycleCountTypeDescription\":{\"entity\":\"CycleCountType.cdm.json/CycleCountType\",\"name\":\"CycleCountTypeDescription\"}}}"
+			},
+			"Compressed": false,
+			"IsStoredAsSubdirectories": false
+		},
+		"Properties": {
+			"DerivedModelEntityInfo": "{\"entityDirectives\":{\"baseEntityReference\":{\"name\":\"CycleCountType\",\"path\":\"CycleCountType.cdm.json/CycleCountType\"},\"description\":\"The type of cycle count.\\n\\nEx:\\n\\nABC CYCLE COUNT\\nABC system with the highest count frequency for items with the highest annual usage value\\n\\nORDER COUNT\\nReorder system when stocks are counted at the time of order\\n\\nUPON RECEIPT COUNT\\nReceiver system with counting when goods are received\\n\\nZERO BALANCE COUNT\\nZero balance system to count items when a backorder situation is reached to confirm that no stock is held\\n\\nTRANSACTION COUNT\\nTransaction system where stocks are counted after a specified number of transactions\",\"primaryKey\":[\"CycleCountTypeId\"],\"projectionInfo\":{\"attributes\":[{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountType.cdm.json/CycleCountType\",\"name\":\"CycleCountTypeId\"},\"dataType\":\"integer\",\"description\":\"The unique identifier of a Cycle Count Type.\",\"isNullable\":false,\"name\":\"CycleCountTypeId\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountType.cdm.json/CycleCountType\",\"name\":\"CycleCountTypeName\"},\"dataType\":\"string\",\"dataTypeLength\":256,\"description\":\"The name of a Cycle Count Type.\",\"isNullable\":true,\"name\":\"CycleCountTypeName\"},{\"type\":\"Existing\",\"attributeReference\":{\"entity\":\"CycleCountType.cdm.json/CycleCountType\",\"name\":\"CycleCountTypeDescription\"},\"dataType\":\"string\",\"dataTypeLength\":2048,\"description\":\"The description of a Cycle Count Type.\",\"isNullable\":true,\"name\":\"CycleCountTypeDescription\"}]}}}",
+			"Description": "The type of cycle count.\n\nEx:\n\nABC CYCLE COUNT\nABC system with the highest count frequency for items with the highest annual usage value\n\nORDER COUNT\nReorder system when stocks are counted at the time of order\n\nUPON RECEIPT COUNT\nReceiver system with counting when goods are received\n\nZERO BALANCE COUNT\nZero balance system to count items when a backorder situation is reached to confirm that no stock is held\n\nTRANSACTION COUNT\nTransaction system where stocks are counted after a specified number of transactions",
+			"DisplayFolderInfo": "{\"name\":\"Inventory\",\"colorCode\":\"#EA279F\"}",
+			"PrimaryKeys": "CycleCountTypeId",
+			"spark.sql.sources.provider": "parquet",
+			"sql:IsAppendOnly": false
+		},
+		"Retention": 0,
+		"Temporary": false,
+		"IsRewriteEnabled": false
+	},
+	"type": "TABLE"
+}
