@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "a7057629-8f4a-43b2-a0fd-8368bf47e6be"
+				"spark.autotune.trackingId": "2e7d14e2-0769-4dd8-9cdd-98aaeb51d516"
 			}
 		},
 		"metadata": {
@@ -60,7 +60,7 @@
 					"df = spark.sql(\"SELECT * FROM `LakeDb1`.`customTable1`\")\n",
 					"df.show(10)"
 				],
-				"execution_count": 5
+				"execution_count": 26
 			},
 			{
 				"cell_type": "code",
@@ -106,7 +106,7 @@
 					"%%pyspark \r\n",
 					"display(spark.sql('SHOW CREATE TABLE `LakeDb1`.`cyclecount1`'))"
 				],
-				"execution_count": 23
+				"execution_count": 25
 			},
 			{
 				"cell_type": "code",
