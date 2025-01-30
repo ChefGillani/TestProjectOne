@@ -138,7 +138,7 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('workspaceName'), '/SQLDatabase1')]",
+			"name": "[concat(parameters('workspaceName'), '/LakeDb1')]",
 			"type": "Microsoft.Synapse/workspaces/databases",
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
@@ -147,7 +147,7 @@
 						"ActionType": "CREATE",
 						"OldEntity": null,
 						"NewEntity": {
-							"Name": "SQLDatabase1",
+							"Name": "LakeDb1",
 							"EntityType": "DATABASE",
 							"Origin": {
 								"Type": "SPARK"
@@ -157,9 +157,9 @@
 							},
 							"Source": {
 								"Provider": "ADLS",
-								"Location": "abfss://synapsefilesystem1@shgillasynapse1datalake.dfs.core.windows.net/SQLDatabase1",
+								"Location": "abfss://synapsefilesystem1@shgillasynapse1datalake.dfs.core.windows.net/LakeDb1",
 								"Properties": {
-									"FormatType": "csv",
+									"FormatType": "parquet",
 									"LinkedServiceName": "shgillasynapse1-WorkspaceDefaultStorage"
 								}
 							}
